@@ -8,6 +8,9 @@ namespace Snake_And_Ladder_Program
         {
             int player1 = 0;
             int rollDie1_p1 = 0;
+            int finish = 100;
+            while (player1 < finish)
+            {
             Random obj = new Random();
                 int randomDie1 = obj.Next(1, 7);
                 rollDie1_p1++;
@@ -31,6 +34,8 @@ namespace Snake_And_Ladder_Program
                         player1 += randomDie1;
                     }
                 }
+                
+            }
         }
     }
 }
