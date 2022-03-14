@@ -7,14 +7,18 @@ namespace Snake_And_Ladder_Program
         static void Main(string[] args)
         {
             int player1 = 0;
+            int player2 = 0;
             int rollDie1_p1 = 0;
+            int rollDie2_p2 = 0;
             int finish = 100;
-            while (player1 < finish)
+
+            while (player1 < finish && player2 < finish)
             {
-            Random obj = new Random();
+                Random obj = new Random();
                 int randomDie1 = obj.Next(1, 7);
                 rollDie1_p1++;
-            string[] names = new string[] { "no play", "ladder", "snake" };
+
+                string[] names = new string[] { "no play", "ladder", "snake" };
                 Random rand = new Random();
                 int randomOption1 = rand.Next(names.Length);
 
@@ -34,6 +38,27 @@ namespace Snake_And_Ladder_Program
                         player1 += randomDie1;
                     }
                 }
+
+                int randomDie2 = obj.Next(1, 7);
+                rollDie2_p2++;
+                int randomOption2 = rand.Next(names.Length);
+
+                if (names[randomOption2] == "ladder")
+                {
+                    player2 += randomDie2;
+                    if (player2 > 100)
+                    {
+                        player2 -= randomDie2;
+                    }
+                }
+                else if (names[randomOption2] == "snake")
+                {
+                    player2 -= randomDie2;
+                    if (player2 < 0)
+                    {
+                        player2 += randomDie2;
+                    }
+                }
                 Console.WriteLine("positions of Player 1 = " + player1);
                 Console.WriteLine("Times of Die thrown By Player 1 = " + rollDie1_p1);
 
@@ -48,7 +73,7 @@ namespace Snake_And_Ladder_Program
                 {
                     Console.WriteLine("player 2 won the game.");
                 }
-                
+
             }
         }
     }
