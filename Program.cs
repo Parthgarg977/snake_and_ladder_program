@@ -6,7 +6,7 @@ namespace Snake_And_Ladder_Program
     {
         static void Main(string[] args)
         {
-            
+            int player1 = 0;
         }
     }
 }
